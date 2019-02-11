@@ -8,6 +8,7 @@
         document.getElementById('on').style=" width: 20%;";
         display.innerHTML = "0";
         punto=false;
+        negativo=false;
         setTimeout(OnUp,100);
     };
 
@@ -17,6 +18,15 @@
 
     function signDown(){
         document.getElementById('sign').style=" width: 20%;";
+        
+        if(negativo==false && display.innerHTML!= 0){
+            display.innerHTML = "-"+ display.innerHTML;
+            negativo=true;   
+        }else if(negativo==true){
+            len = display.innerHTML.length;
+            display.innerHTML = display.innerHTML.substring(1);
+            negativo=false;
+        }
         setTimeout(signUp,100);
     };
 
@@ -46,8 +56,12 @@
 
         document.getElementById('7').style=" width: 20%;";
         if (display.innerHTML == "0"){
-            display.innerHTML = "7";
-        }else{
+           
+                display.innerHTML = "7";
+                console.log(display.innerHTML.length)
+           
+            
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "7";
         }
 
@@ -62,7 +76,7 @@
         document.getElementById('6').style=" width: 20%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "6";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "6";
         }
         setTimeout(seisUp,100);
@@ -76,7 +90,7 @@
         document.getElementById('8').style=" width: 20%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "8";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "8";
         }
         setTimeout(ochoUp,100);
@@ -90,7 +104,7 @@
         document.getElementById('9').style=" width: 20%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "9";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "9";
         }
         setTimeout(nueveUp,100);
@@ -113,7 +127,7 @@
         document.getElementById('4').style=" width: 20%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "4";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "4";
         }
         setTimeout(cuatroUp,100);
@@ -127,7 +141,7 @@
         document.getElementById('5').style=" width: 20%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "5";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "5";
         }
         setTimeout(cincoUp,100);
@@ -150,7 +164,7 @@
         document.getElementById('1').style=" width: 27%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "1";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "1";
         }
         setTimeout(unoUp,100);
@@ -164,7 +178,7 @@
         document.getElementById('2').style=" width: 27%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "2";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "2";
         }
         setTimeout(dosUp,100);
@@ -178,7 +192,7 @@
         document.getElementById('3').style=" width: 27%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "3";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "3";
         }
         setTimeout(tresUp,100);
@@ -191,7 +205,7 @@
         document.getElementById('0').style=" width: 27%;";
         if (display.innerHTML == "0"){
             display.innerHTML = "0";
-        }else{
+        }else if(display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + "0";
         }
         setTimeout(ceroUp,100);
@@ -221,7 +235,7 @@
 
     function puntoDown(){
         document.getElementById('punto').style=" width: 27%;";
-        if(punto==false){
+        if(punto==false && display.innerHTML.length < 8){
             display.innerHTML = display.innerHTML + ".";
             punto= true;
         }
