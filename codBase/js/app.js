@@ -1,7 +1,13 @@
  var calculadora = (function(){
 
+    var display = document.getElementById("display");
+    var punto = false;
+    var negativo = false;
+
     function OnDown(){
         document.getElementById('on').style=" width: 20%;";
+        display.innerHTML = "0";
+        punto=false;
         setTimeout(OnUp,100);
     };
 
@@ -37,7 +43,14 @@
     };
 
     function sieteDown(){
+
         document.getElementById('7').style=" width: 20%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "7";
+        }else{
+            display.innerHTML = display.innerHTML + "7";
+        }
+
         setTimeout(sieteUp,100);
     };
 
@@ -47,6 +60,11 @@
 
     function seisDown(){
         document.getElementById('6').style=" width: 20%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "6";
+        }else{
+            display.innerHTML = display.innerHTML + "6";
+        }
         setTimeout(seisUp,100);
     };
 
@@ -56,6 +74,11 @@
 
     function ochoDown(){
         document.getElementById('8').style=" width: 20%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "8";
+        }else{
+            display.innerHTML = display.innerHTML + "8";
+        }
         setTimeout(ochoUp,100);
     };
 
@@ -65,6 +88,11 @@
 
     function nueveDown(){
         document.getElementById('9').style=" width: 20%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "9";
+        }else{
+            display.innerHTML = display.innerHTML + "9";
+        }
         setTimeout(nueveUp,100);
     };
 
@@ -83,6 +111,11 @@
 
     function cuatroDown(){
         document.getElementById('4').style=" width: 20%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "4";
+        }else{
+            display.innerHTML = display.innerHTML + "4";
+        }
         setTimeout(cuatroUp,100);
     };
 
@@ -92,6 +125,11 @@
 
     function cincoDown(){
         document.getElementById('5').style=" width: 20%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "5";
+        }else{
+            display.innerHTML = display.innerHTML + "5";
+        }
         setTimeout(cincoUp,100);
     };
 
@@ -110,6 +148,11 @@
 
     function unoDown(){
         document.getElementById('1').style=" width: 27%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "1";
+        }else{
+            display.innerHTML = display.innerHTML + "1";
+        }
         setTimeout(unoUp,100);
     };
 
@@ -119,6 +162,11 @@
 
     function dosDown(){
         document.getElementById('2').style=" width: 27%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "2";
+        }else{
+            display.innerHTML = display.innerHTML + "2";
+        }
         setTimeout(dosUp,100);
     };
 
@@ -128,6 +176,11 @@
 
     function tresDown(){
         document.getElementById('3').style=" width: 27%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "3";
+        }else{
+            display.innerHTML = display.innerHTML + "3";
+        }
         setTimeout(tresUp,100);
     };
 
@@ -136,6 +189,11 @@
     };
     function ceroDown(){
         document.getElementById('0').style=" width: 27%;";
+        if (display.innerHTML == "0"){
+            display.innerHTML = "0";
+        }else{
+            display.innerHTML = display.innerHTML + "0";
+        }
         setTimeout(ceroUp,100);
     };
 
@@ -163,6 +221,10 @@
 
     function puntoDown(){
         document.getElementById('punto').style=" width: 27%;";
+        if(punto==false){
+            display.innerHTML = display.innerHTML + ".";
+            punto= true;
+        }
         setTimeout(puntoUp,100);
     };
 
