@@ -3,18 +3,80 @@
     var display = document.getElementById("display");
     var punto = false;
     var negativo = false;
+    var operacion,limite,subcadena;
+    var numero1 = 0, numero2 = 0, resultado=0;
 
     function OnDown(){
         document.getElementById('on').style=" width: 20%;";
         display.innerHTML = "0";
         punto=false;
         negativo=false;
+        numero1=0;
+        numero2=0;
         setTimeout(OnUp,100);
     };
 
+    
     function OnUp(){
-            document.getElementById('on').style=" width: 22%;";
+        document.getElementById('on').style=" width: 22%;";
     };
+
+    function suma (num1,num2){
+        resultado = num1 + num2;
+        limite = resultado.toString();
+        if (limite.length > 8){
+
+            subcadena = limite.substring(0,7);
+            display.innerHTM = subcadena;
+        }else{
+           subcadena = limite;
+        }
+        
+        display.innerHTML= subcadena;
+    }
+
+    function resta (num1,num2){
+        resultado = num1 - num2;
+        limite = resultado.toString()
+        if (limite.length > 8){
+
+            subcadena = limite.substring(0,7);
+            display.innerHTM = subcadena;
+        }else{
+           subcadena = limite;
+        }
+        
+        display.innerHTML= subcadena;
+    }
+
+    function division (num1,num2){
+        resultado = num1 / num2;
+        limite = resultado.toString()
+        if (limite.length > 8){
+
+            subcadena = limite.substring(0,8);
+            display.innerHTM = subcadena;
+        }else{
+           subcadena = limite;
+        }
+        
+        display.innerHTML= subcadena;
+    }
+
+    function multiplicacion (num1,num2){
+        resultado = num1 * num2;
+        limite = resultado.toString()
+        if (limite.length > 8){
+
+            subcadena = limite.substring(0,7);
+            display.innerHTM = subcadena;
+        }else{
+           subcadena = limite;
+        }
+        
+        display.innerHTML= subcadena;
+    }
+
 
     function signDown(){
         document.getElementById('sign').style=" width: 20%;";
@@ -45,6 +107,9 @@
 
     function divididoDown(){
         document.getElementById('dividido').style=" width: 20%;";
+        numero1= Number(display.innerHTML);
+        display.innerHTML = "";
+        operacion = "division";
         setTimeout(divididoUp,100);
     };
 
@@ -116,6 +181,9 @@
 
     function porDown(){
         document.getElementById('por').style=" width: 20%;";
+        numero1= Number(display.innerHTML);
+        display.innerHTML = "";
+        operacion = "multiplicacion";
         setTimeout(porUp,100);
     };
 
@@ -154,6 +222,9 @@
     function menosDown(){
         document.getElementById('menos').style=" width: 20%;";
         setTimeout(menosUp,100);
+        numero1= Number(display.innerHTML);
+        display.innerHTML = "";
+        operacion = "resta";
     };
 
     function menosUp(){
@@ -217,6 +288,26 @@
 
     function igualDown(){
         document.getElementById('igual').style=" width: 27%;";
+        
+        switch(operacion){
+            case "suma":
+            numero2 = Number(display.innerHTML);
+            suma(numero1,numero2);
+            break;
+            case "resta":
+            numero2 = Number(display.innerHTML);
+            resta(numero1,numero2);
+            break;
+            case "multiplicacion":
+            numero2 = Number(display.innerHTML);
+            multiplicacion(numero1,numero2);
+            break;
+            case "division":
+            numero2 = Number(display.innerHTML);
+            division(numero1,numero2);
+            break;
+
+        }
         setTimeout(igualUp,100);
     };
 
@@ -226,6 +317,13 @@
 
     function masDown(){
         document.getElementById('mas').style=" height: 90%;";
+       
+        numero1= Number(display.innerHTML);
+        display.innerHTML = "";
+        operacion = "suma";
+        punto=false;
+        negativo=false;
+        
         setTimeout(masUp,100);
     };
 
