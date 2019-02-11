@@ -3,6 +3,7 @@
     var display = document.getElementById("display");
     var punto = false;
     var negativo = false;
+    var secuencia = true;
     var operacion,limite,subcadena;
     var numero1 = 0, numero2 = 0, resultado=0;
 
@@ -11,6 +12,7 @@
         display.innerHTML = "0";
         punto=false;
         negativo=false;
+        secuencia=false;
         numero1=0;
         numero2=0;
         setTimeout(OnUp,100);
@@ -111,6 +113,9 @@
         display.innerHTML = "";
         operacion = "division";
         setTimeout(divididoUp,100);
+        punto=false;
+        negativo=false;
+        secuencia=false;
     };
 
     function divididoUp(){
@@ -185,6 +190,9 @@
         display.innerHTML = "";
         operacion = "multiplicacion";
         setTimeout(porUp,100);
+        punto=false;
+        negativo=false;
+        secuencia=false;
     };
 
     function porUp(){
@@ -225,6 +233,9 @@
         numero1= Number(display.innerHTML);
         display.innerHTML = "";
         operacion = "resta";
+        punto=false;
+        negativo=false;
+        secuencia=false;
     };
 
     function menosUp(){
@@ -291,19 +302,43 @@
         
         switch(operacion){
             case "suma":
-            numero2 = Number(display.innerHTML);
+            if(secuencia == false){
+                numero2 = Number(display.innerHTML);
+                secuencia = true;
+            }else{
+                numero1 = Number(display.innerHTML);
+            }
+            
             suma(numero1,numero2);
             break;
             case "resta":
-            numero2 = Number(display.innerHTML);
+            if(secuencia == false){
+                numero2 = Number(display.innerHTML);
+                secuencia = true;
+            }else{
+                numero1 = Number(display.innerHTML);
+            }
+            
             resta(numero1,numero2);
             break;
             case "multiplicacion":
-            numero2 = Number(display.innerHTML);
+            if(secuencia == false){
+                numero2 = Number(display.innerHTML);
+                secuencia = true;
+            }else{
+                numero1 = Number(display.innerHTML);
+            }
+            
             multiplicacion(numero1,numero2);
             break;
             case "division":
-            numero2 = Number(display.innerHTML);
+            if(secuencia == false){
+                numero2 = Number(display.innerHTML);
+                secuencia = true;
+            }else{
+                numero1 = Number(display.innerHTML);
+            }
+            
             division(numero1,numero2);
             break;
 
@@ -323,6 +358,7 @@
         operacion = "suma";
         punto=false;
         negativo=false;
+        secuencia=false;
         
         setTimeout(masUp,100);
     };
